@@ -1,0 +1,2 @@
+rootProject.name = "DelLuna"
+include ':app'
