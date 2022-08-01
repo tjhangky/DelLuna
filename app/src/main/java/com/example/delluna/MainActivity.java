@@ -13,10 +13,6 @@ public class MainActivity extends AppCompatActivity {
     EditText etEmail, etPassword;
     Button btnLogin;
 
-    boolean validEmail(String email){
-        return email.endsWith(".com");
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

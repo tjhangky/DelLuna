@@ -6,11 +6,11 @@
         android:id="@+id/i_merchandise" />
 
     <item
-        android:title="Logout"
-        android:id="@+id/i_logout" />
-
-    <item
         android:title="About"
         android:id="@+id/i_about" />
+
+    <item
+        android:title="Logout"
+        android:id="@+id/i_logout" />
 
 </menu>
