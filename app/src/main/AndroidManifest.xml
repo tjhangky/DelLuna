@@ -9,10 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DelLuna">
-        <activity
-            android:name=".testingnav"
-            android:label="@string/title_activity_testingnav"
-            android:theme="@style/Theme.DelLuna.NoActionBar"></activity>
+        <activity android:name=".Merchandise"/>
         <activity android:name=".About" />
         <activity android:name=".HomePage" />
         <activity

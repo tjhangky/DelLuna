@@ -13,29 +13,20 @@ import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
 
-public class HomePage extends AppCompatActivity {
+public class Merchandise extends AppCompatActivity {
 
-    TextView tvWelcome;
     TabLayout tlTab;
     ViewPager2 vpFragment;
-    Bundle extras;
     FragmentAdapter fragmentAdapter;
 
     void init() {
-        tvWelcome = findViewById(R.id.tv_welcome);
         tlTab = findViewById(R.id.tl_tab);
         vpFragment = findViewById(R.id.vp_fragment);
-        extras = getIntent().getExtras();
         fragmentAdapter = new FragmentAdapter(getSupportFragmentManager(), getLifecycle());
         vpFragment.setAdapter(fragmentAdapter);
     }
 
-    void setUsername() {
-        String username = extras.getString("username");
-        tvWelcome.setText("welcome, " + username);
-    }
-
-//    Tabs
+    //    Tabs
     void populateTab() {
         tlTab.addTab(tlTab.newTab().setText("Cloth"));
         tlTab.addTab(tlTab.newTab().setText("Album"));
@@ -62,7 +53,7 @@ public class HomePage extends AppCompatActivity {
     }
 //
 
-//    Sidebar Menu
+    //    Sidebar Menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
@@ -73,8 +64,8 @@ public class HomePage extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case(R.id.i_merchandise): {
-                Intent intent = new Intent(this, Merchandise.class);
+            case(R.id.i_logout): {
+                Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 finish();
                 break;
@@ -82,13 +73,6 @@ public class HomePage extends AppCompatActivity {
 
             case(R.id.i_about): {
                 Intent intent = new Intent(this, About.class);
-                startActivity(intent);
-                finish();
-                break;
-            }
-
-            case(R.id.i_logout): {
-                Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 finish();
                 break;
@@ -101,12 +85,10 @@ public class HomePage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page);
+        setContentView(R.layout.activity_merchandise);
 
         init();
-        setUsername();
         populateTab();
         setupTab();
-
     }
 }
