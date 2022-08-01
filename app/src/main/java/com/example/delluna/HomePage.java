@@ -31,7 +31,7 @@ public class HomePage extends AppCompatActivity {
     }
 
     void setUsername() {
-        String username = extras.getString("email");
+        String username = extras.getString("username");
         tvWelcome.setText("welcome, " + username);
     }
 
