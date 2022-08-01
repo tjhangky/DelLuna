@@ -75,6 +75,7 @@ public class HomePage extends AppCompatActivity {
         switch (item.getItemId()) {
             case(R.id.i_merchandise): {
                 Intent intent = new Intent(this, Merchandise.class);
+                intent.putExtra("username", extras.getString("username"));
                 startActivity(intent);
                 finish();
                 break;
@@ -82,6 +83,7 @@ public class HomePage extends AppCompatActivity {
 
             case(R.id.i_about): {
                 Intent intent = new Intent(this, About.class);
+                intent.putExtra("username", extras.getString("username"));
                 startActivity(intent);
                 finish();
                 break;

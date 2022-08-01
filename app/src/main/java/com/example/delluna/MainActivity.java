@@ -11,7 +11,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     EditText etEmail, etPassword;
-    Button btnLogin;
+    Button btnLogin, testing;
 
     boolean validateEmail(String email){
 //        if(email.matches("")){
@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,19 +59,18 @@ public class MainActivity extends AppCompatActivity {
 
         btnLogin.setOnClickListener(e -> {
             String email, password;
-
             email = etEmail.getText().toString();
             password = etPassword.getText().toString();
 
-            if(validateEmail(email) && validatePassword(password)){
-                Intent intent = new Intent(this, HomePage.class);
-                intent.putExtra("username", email.substring(0, email.indexOf("@")));
+            if (validateEmail(email) && validatePassword(password)) {
+                Intent intent = new Intent(MainActivity.this, HomePage.class);
+//                intent.putExtra("username", email.substring(0, email.indexOf("@")));
+                intent.putExtra("username", email);
                 startActivity(intent);
                 finish();
-            }else{
+            } else {
                 return;
             }
         });
-
     }
 }

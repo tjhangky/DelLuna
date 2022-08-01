@@ -18,12 +18,14 @@ public class Merchandise extends AppCompatActivity {
     TabLayout tlTab;
     ViewPager2 vpFragment;
     FragmentAdapter fragmentAdapter;
+    Bundle extras;
 
     void init() {
         tlTab = findViewById(R.id.tl_tab);
         vpFragment = findViewById(R.id.vp_fragment);
         fragmentAdapter = new FragmentAdapter(getSupportFragmentManager(), getLifecycle());
         vpFragment.setAdapter(fragmentAdapter);
+        extras = getIntent().getExtras();
     }
 
     //    Tabs
@@ -57,15 +59,16 @@ public class Merchandise extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu, menu);
+        menuInflater.inflate(R.menu.menu_merchandise, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case(R.id.i_logout): {
-                Intent intent = new Intent(this, MainActivity.class);
+            case(R.id.i_home): {
+                Intent intent = new Intent(this, HomePage.class);
+                intent.putExtra("username", extras.getString("username"));
                 startActivity(intent);
                 finish();
                 break;
@@ -73,10 +76,20 @@ public class Merchandise extends AppCompatActivity {
 
             case(R.id.i_about): {
                 Intent intent = new Intent(this, About.class);
+                intent.putExtra("username", extras.getString("username"));
                 startActivity(intent);
                 finish();
                 break;
             }
+
+            case(R.id.i_logout): {
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+                finish();
+                break;
+            }
+
+
         }
         return true;
     }

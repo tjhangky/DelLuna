@@ -37,7 +37,4 @@
         android:text="Login"
         android:id="@+id/btn_login"/>
 
-
-
-
 </LinearLayout>
