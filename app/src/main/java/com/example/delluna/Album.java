@@ -3,10 +3,16 @@ package com.example.delluna;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.delluna.adapter.AlbumAdapter;
+
+import java.util.Vector;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -60,5 +66,37 @@ public class Album extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_album, container, false);
+    }
+
+    //    list item
+    RecyclerView rvAlbum;
+    AlbumAdapter albumAdapter;
+    Vector<com.example.delluna.model.Album> vAlbum;
+//
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        // RecycleView
+        rvAlbum = view.findViewById(R.id.rv_album);
+        albumAdapter = new AlbumAdapter(this.getContext());
+        loadData();
+        albumAdapter.setvAlbum(vAlbum);
+
+        rvAlbum.setAdapter(albumAdapter);
+        rvAlbum.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        //
+    }
+
+    private void loadData() {
+        vAlbum = new Vector<>();
+        vAlbum.add(new com.example.delluna.model.Album("A001", "Aespa", 50, 100, "Lorem Ipsum", "album_aespa"));
+        vAlbum.add(new com.example.delluna.model.Album("A002", "Ateez", 50, 100, "Lorem Ipsum", "album_ateez"));
+        vAlbum.add(new com.example.delluna.model.Album("A003", "NCT", 50, 100, "Lorem Ipsum", "album_nct"));
+        vAlbum.add(new com.example.delluna.model.Album("A004", "EY", 50, 100, "Lorem Ipsum", "album_ey"));
+        vAlbum.add(new com.example.delluna.model.Album("A005", "Red Velvet", 50, 100, "Lorem Ipsum", "album_rv"));
+        vAlbum.add(new com.example.delluna.model.Album("A006", "SK", 50, 100, "Lorem Ipsum", "album_sk"));
+        vAlbum.add(new com.example.delluna.model.Album("A007", "TXT", 50, 100, "Lorem Ipsum", "album_txt"));
     }
 }

@@ -3,10 +3,16 @@ package com.example.delluna;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.delluna.adapter.OtherAdapter;
+
+import java.util.Vector;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -61,4 +67,35 @@ public class Other extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_other, container, false);
     }
+
+    // list item
+    RecyclerView rvOther;
+    OtherAdapter otherAdapter;
+    Vector<com.example.delluna.model.Other> vOther;
+    //
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        // RecycleView
+        rvOther = view.findViewById(R.id.rv_other);
+        otherAdapter = new OtherAdapter(this.getContext());
+        loadData();
+        otherAdapter.setvOther(vOther);
+
+        rvOther.setAdapter(otherAdapter);
+        rvOther.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        //
+    }
+
+    private void loadData() {
+        vOther = new Vector<>();
+        vOther.add(new com.example.delluna.model.Other("M001", "NCT Lightstick", 50, 100, "Lorem Ipsum", "lightstick_nct"));
+        vOther.add(new com.example.delluna.model.Other("M002", "BlackPink Lightstick", 50, 100, "Lorem Ipsum", "lightstick_bp"));
+        vOther.add(new com.example.delluna.model.Other("M003", "TWICE Photocard", 50, 100, "Lorem Ipsum", "photocard_twice"));
+        vOther.add(new com.example.delluna.model.Other("M004", "ST Poster", 50, 100, "Lorem Ipsum", "poster_st"));
+        vOther.add(new com.example.delluna.model.Other("M005", "BTS Tumbler", 50, 100, "Lorem Ipsum", "tumbler_bts"));
+    }
+
 }

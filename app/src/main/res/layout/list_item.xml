@@ -15,7 +15,7 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             app:srcCompat="@drawable/hoodie_suju"
-            android:id="@+id/iv_cloth_image"/>
+            android:id="@+id/iv_item_image"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,29 +24,24 @@
             android:gravity="center"
             android:padding="10dp"
             >
-<!--            <TextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Item ID"-->
-<!--                android:id="@+id/tv_cloth_id"/>-->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
                 android:text="Item Name"
-                android:id="@+id/tv_cloth_name"/>
+                android:id="@+id/tv_item_name"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Item Sold"
-                android:id="@+id/tv_cloth_sold"/>
+                android:id="@+id/tv_item_sold"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
                 android:textAlignment="textEnd"
                 android:text="Item Price"
-                android:id="@+id/tv_cloth_price"/>
+                android:id="@+id/tv_item_price"/>
         </LinearLayout>
     </LinearLayout>
 

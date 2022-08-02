@@ -14,22 +14,22 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.delluna.MerchandiseDetailPage;
 import com.example.delluna.R;
-import com.example.delluna.model.Cloth;
+import com.example.delluna.model.Other;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Vector;
 
-public class ClothAdapter extends RecyclerView.Adapter<ClothAdapter.ViewHolder>{
+public class OtherAdapter extends RecyclerView.Adapter<OtherAdapter.ViewHolder>{
     private Context context;
-    private Vector<Cloth> vCloth;
+    private Vector<Other> vOther;
 
-    public ClothAdapter(Context context) {
+    public OtherAdapter(Context context) {
         this.context = context;
     }
 
-    public void setvCloth(Vector<Cloth> vCloth) {
-        this.vCloth = vCloth;
+    public void setvOther(Vector<Other> vOther) {
+        this.vOther = vOther;
     }
 
     @NonNull
@@ -43,25 +43,25 @@ public class ClothAdapter extends RecyclerView.Adapter<ClothAdapter.ViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @NotNull ClothAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull @NotNull OtherAdapter.ViewHolder holder, int position) {
 //      set variabel value dari view kita
-        Cloth cloth = vCloth.get(position);
-        holder.tvItemName.setText(cloth.getClothName());
-        holder.tvItemPrice.setText(cloth.getClothPrice() + " K");
-        holder.tvItemSold.setText(cloth.getClothSold() + " pcs");
+        Other other = vOther.get(position);
+        holder.tvItemName.setText(other.getOtherName());
+        holder.tvItemPrice.setText(other.getOtherPrice() + " K");
+        holder.tvItemSold.setText(other.getOtherSold() + " pcs");
 
-        int resourceId = this.context.getResources().getIdentifier(cloth.getClothImage(), "drawable", this.context.getPackageName());
+        int resourceId = this.context.getResources().getIdentifier(other.getOtherImage(), "drawable", this.context.getPackageName());
         holder.ivItemImage.setImageResource(resourceId);
 
         holder.cvItemCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(holder.cvItemCard.getContext(), MerchandiseDetailPage.class);
-                intent.putExtra("itemName", cloth.getClothName());
-                intent.putExtra("itemPrice", "IDR " + cloth.getClothPrice() + " K");
-                intent.putExtra("itemSold", "Sold: " + cloth.getClothSold());
-                intent.putExtra("itemDescription", cloth.getClothDescription());
-                intent.putExtra("itemImage", cloth.getClothImage());
+                intent.putExtra("itemName", other.getOtherName());
+                intent.putExtra("itemPrice", "IDR " + other.getOtherPrice() + " K");
+                intent.putExtra("itemSold", "Sold: " + other.getOtherSold());
+                intent.putExtra("itemDescription", other.getOtherDescription());
+                intent.putExtra("itemImage", other.getOtherImage());
                 holder.cvItemCard.getContext().startActivity(intent);
             }
         });
@@ -69,7 +69,7 @@ public class ClothAdapter extends RecyclerView.Adapter<ClothAdapter.ViewHolder>{
 
     @Override
     public int getItemCount() {
-        return vCloth.size();
+        return vOther.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

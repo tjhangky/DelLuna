@@ -2,8 +2,6 @@ package com.example.delluna;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,9 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.delluna.adapter.ClothAdapter;
-import com.example.delluna.adapter.MyRecycleViewAdapter;
 
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Vector;
 
@@ -57,12 +53,6 @@ public class Cloth extends Fragment {
         return fragment;
     }
 
-//    list item
-    RecyclerView rvCloth;
-    ClothAdapter clothAdapter;
-    Vector<com.example.delluna.model.Cloth> vCloth;
-//
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +68,12 @@ public class Cloth extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_cloth, container, false);
     }
+
+    // list item
+    RecyclerView rvCloth;
+    ClothAdapter clothAdapter;
+    Vector<com.example.delluna.model.Cloth> vCloth;
+    //
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {

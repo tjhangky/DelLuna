@@ -2,17 +2,14 @@ package com.example.delluna;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MerchandiseDetailPage extends AppCompatActivity {
 
@@ -23,11 +20,11 @@ public class MerchandiseDetailPage extends AppCompatActivity {
 
     public void init() {
 //        tvItemId = findViewById(R.id.tv_item_id);
-        tvItemName = findViewById(R.id.tv_item_name);
-        tvItemPrice = findViewById(R.id.tv_item_price);
-        tvItemSold = findViewById(R.id.tv_item_sold);
-        tvItemDescription = findViewById(R.id.tv_item_description);
-        ivItemImage = findViewById(R.id.iv_item_image);
+        tvItemName = findViewById(R.id.tv_item_detail_name);
+        tvItemPrice = findViewById(R.id.tv_item_detail_price);
+        tvItemSold = findViewById(R.id.tv_item_detail_sold);
+        tvItemDescription = findViewById(R.id.tv_item_detail_description);
+        ivItemImage = findViewById(R.id.iv_item_detail_image);
         extras = getIntent().getExtras();
 
     }
