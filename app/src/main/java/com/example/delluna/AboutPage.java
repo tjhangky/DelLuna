@@ -9,7 +9,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-public class About extends AppCompatActivity {
+public class AboutPage extends AppCompatActivity {
 
     Bundle extras;
 
@@ -38,7 +38,7 @@ public class About extends AppCompatActivity {
             }
 
             case(R.id.i_merchandise): {
-                Intent intent = new Intent(this, Merchandise.class);
+                Intent intent = new Intent(this, MerchandisePage.class);
                 intent.putExtra("username", extras.getString("username"));
                 startActivity(intent);
                 finish();

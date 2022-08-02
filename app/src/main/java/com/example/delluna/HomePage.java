@@ -47,7 +47,7 @@ public class HomePage extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case(R.id.i_merchandise): {
-                Intent intent = new Intent(this, Merchandise.class);
+                Intent intent = new Intent(this, MerchandisePage.class);
                 intent.putExtra("username", extras.getString("username"));
                 startActivity(intent);
                 finish();
@@ -55,7 +55,7 @@ public class HomePage extends AppCompatActivity {
             }
 
             case(R.id.i_about): {
-                Intent intent = new Intent(this, About.class);
+                Intent intent = new Intent(this, AboutPage.class);
                 intent.putExtra("username", extras.getString("username"));
                 startActivity(intent);
                 finish();

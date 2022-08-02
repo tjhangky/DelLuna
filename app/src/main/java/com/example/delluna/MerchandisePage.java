@@ -9,11 +9,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
 
-public class Merchandise extends AppCompatActivity {
+public class MerchandisePage extends AppCompatActivity {
 
     TabLayout tlTab;
     ViewPager2 vpFragment;
@@ -75,7 +74,7 @@ public class Merchandise extends AppCompatActivity {
             }
 
             case(R.id.i_about): {
-                Intent intent = new Intent(this, About.class);
+                Intent intent = new Intent(this, AboutPage.class);
                 intent.putExtra("username", extras.getString("username"));
                 startActivity(intent);
                 finish();
