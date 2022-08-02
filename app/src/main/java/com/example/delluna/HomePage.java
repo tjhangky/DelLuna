@@ -24,43 +24,16 @@ public class HomePage extends AppCompatActivity {
     void init() {
         tvWelcome = findViewById(R.id.tv_welcome);
         tlTab = findViewById(R.id.tl_tab);
-        vpFragment = findViewById(R.id.vp_fragment);
+//        vpFragment = findViewById(R.id.vp_fragment);
         extras = getIntent().getExtras();
-        fragmentAdapter = new FragmentAdapter(getSupportFragmentManager(), getLifecycle());
-        vpFragment.setAdapter(fragmentAdapter);
+//        fragmentAdapter = new FragmentAdapter(getSupportFragmentManager(), getLifecycle());
+//        vpFragment.setAdapter(fragmentAdapter);
     }
 
     void setUsername() {
         String username = extras.getString("username");
         tvWelcome.setText("welcome, " + username);
     }
-
-//    Tabs
-    void populateTab() {
-        tlTab.addTab(tlTab.newTab().setText("Cloth"));
-        tlTab.addTab(tlTab.newTab().setText("Album"));
-        tlTab.addTab(tlTab.newTab().setText("Other"));
-    }
-
-    void setupTab() {
-        tlTab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                vpFragment.setCurrentItem(tab.getPosition());
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
-    }
-//
 
 //    Sidebar Menu
     @Override
@@ -107,8 +80,5 @@ public class HomePage extends AppCompatActivity {
 
         init();
         setUsername();
-        populateTab();
-        setupTab();
-
     }
 }

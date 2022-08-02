@@ -4,24 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".HomePage"
     android:orientation="vertical"
-    tools:context=".HomePage">
+    android:layout_marginHorizontal="15dp">
 
     <TextView
         android:id="@+id/tv_welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Welcome, email"
+        android:layout_marginTop="20dp"
         android:textSize="20dp" />
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tl_tab"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/vp_fragment"
+        android:id="@+id/vp_carousel"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="200dp"
+        android:layout_marginTop="30dp" />
+    " />
 
 </LinearLayout>
