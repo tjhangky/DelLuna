@@ -2,11 +2,22 @@ package com.example.delluna;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.delluna.adapter.ClothAdapter;
+import com.example.delluna.adapter.MyRecycleViewAdapter;
+
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Vector;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -46,6 +57,12 @@ public class Cloth extends Fragment {
         return fragment;
     }
 
+//    list item
+    RecyclerView rvCloth;
+    ClothAdapter clothAdapter;
+    Vector<com.example.delluna.model.Cloth> vCloth;
+//
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,5 +77,29 @@ public class Cloth extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_cloth, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        // RecycleView
+        rvCloth = view.findViewById(R.id.rv_cloth);
+        clothAdapter = new ClothAdapter(this.getContext());
+        loadData();
+        clothAdapter.setvCloth(vCloth);
+
+        rvCloth.setAdapter(clothAdapter);
+        rvCloth.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        //
+    }
+
+    private void loadData() {
+        vCloth = new Vector<>();
+        vCloth.add(new com.example.delluna.model.Cloth("C001", "BlackPink Tee", 50, 100, "Lorem Ipsum", "tee_bp"));
+        vCloth.add(new com.example.delluna.model.Cloth("C002", "EXO Tee", 50, 100, "Lorem Ipsum", "tee_exo"));
+        vCloth.add(new com.example.delluna.model.Cloth("C003", "Treasure Sweater", 50, 100, "Lorem Ipsum", "sweater_treasure"));
+        vCloth.add(new com.example.delluna.model.Cloth("C004", "RedVelvet Tee", 50, 100, "Lorem Ipsum", "tee_rv"));
+        vCloth.add(new com.example.delluna.model.Cloth("C005", "SuperJunior Hoodie", 50, 100, "Lorem Ipsum", "hoodie_suju"));
     }
 }

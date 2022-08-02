@@ -93,7 +93,7 @@ public class HomePage extends AppCompatActivity {
 
         init();
         setUsername();
-
+// RecycleView
         rvCloth = findViewById(R.id.rv_cloth);
         myRecycleViewAdapter = new MyRecycleViewAdapter(this);
         loadData();
@@ -101,7 +101,7 @@ public class HomePage extends AppCompatActivity {
 
         rvCloth.setAdapter(myRecycleViewAdapter);
         rvCloth.setLayoutManager(new LinearLayoutManager(this));
-
+//
     };
 
     private void loadData() {

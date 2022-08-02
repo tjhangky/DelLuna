@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MerchandisePage"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_marginHorizontal="15dp">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tl_tab"
