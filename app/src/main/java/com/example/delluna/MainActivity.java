@@ -11,7 +11,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     EditText etEmail, etPassword;
-    Button btnLogin, testing;
+    Button btnLogin;
 
     boolean validateEmail(String email){
 //        if(email.matches("")){
