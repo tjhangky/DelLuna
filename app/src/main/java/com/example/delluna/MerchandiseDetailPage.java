@@ -5,45 +5,57 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MerchandiseDetailPage extends AppCompatActivity {
 
-    TextView tvItemId, tvItemName, tvItemPrice, tvItemSold;
+    TextView tvItemId, tvItemName, tvItemPrice, tvItemSold, tvItemDescription;
+    ImageView ivItemImage;
     Bundle extras;
 
 
     public void init() {
-        tvItemId = findViewById(R.id.tv_item_id);
+//        tvItemId = findViewById(R.id.tv_item_id);
         tvItemName = findViewById(R.id.tv_item_name);
         tvItemPrice = findViewById(R.id.tv_item_price);
         tvItemSold = findViewById(R.id.tv_item_sold);
+        tvItemDescription = findViewById(R.id.tv_item_description);
+        ivItemImage = findViewById(R.id.iv_item_image);
         extras = getIntent().getExtras();
 
     }
 
     public void setItem() {
-        String itemId = extras.getString("itemId");
+//        String itemId = extras.getString("itemId");
         String itemName = extras.getString("itemName");
         String itemPrice = extras.getString("itemPrice");
         String itemSold = extras.getString("itemSold");
+        String itemDescription = extras.getString("itemDescription");
+        String itemImage = extras.getString("itemImage");
 
-        tvItemId.setText(itemId);
+
+//        tvItemId.setText(itemId);
         tvItemName.setText(itemName);
         tvItemPrice.setText(itemPrice);
         tvItemSold.setText(itemSold);
+        tvItemDescription.setText(itemDescription);
+
+        int resourceId = getResources().getIdentifier(itemImage, "drawable", getPackageName());
+        ivItemImage.setImageResource(resourceId);
     }
 
-    //    Sidebar Menu
+//    Sidebar Menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu, menu);
+        menuInflater.inflate(R.menu.menu_merchandise, menu);
         return true;
     }
 

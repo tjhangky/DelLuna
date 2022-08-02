@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
@@ -9,34 +10,46 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="10dp"
-        >
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:srcCompat="@drawable/hoodie_suju"
+            android:id="@+id/iv_cloth_image"/>
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Item ID"
-            android:id="@+id/tv_cloth_id"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Item Name"
-            android:id="@+id/tv_cloth_name"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Item Price"
-            android:id="@+id/tv_cloth_price"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Item Sold"
-            android:id="@+id/tv_cloth_sold"/>
-
+            android:layout_height="150dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="10dp"
+            >
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Item ID"-->
+<!--                android:id="@+id/tv_cloth_id"/>-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="Item Name"
+                android:id="@+id/tv_cloth_name"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Item Sold"
+                android:id="@+id/tv_cloth_sold"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textAlignment="textEnd"
+                android:text="Item Price"
+                android:id="@+id/tv_cloth_price"/>
+        </LinearLayout>
     </LinearLayout>
+
+
 
 </androidx.cardview.widget.CardView>
