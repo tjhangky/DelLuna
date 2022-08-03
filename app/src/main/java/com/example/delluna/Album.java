@@ -68,11 +68,11 @@ public class Album extends Fragment {
         return inflater.inflate(R.layout.fragment_album, container, false);
     }
 
-    //    list item
+    // list item
     RecyclerView rvAlbum;
     AlbumAdapter albumAdapter;
     Vector<com.example.delluna.model.Album> vAlbum;
-//
+    //
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {

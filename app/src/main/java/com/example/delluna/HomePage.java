@@ -24,17 +24,12 @@ public class HomePage extends AppCompatActivity {
 
     TextView tvWelcome;
     TabLayout tlTab;
-    ViewPager2 vpFragment;
     Bundle extras;
-    FragmentAdapter fragmentAdapter;
 
     void init() {
         tvWelcome = findViewById(R.id.tv_welcome);
         tlTab = findViewById(R.id.tl_tab);
-//        vpFragment = findViewById(R.id.vp_fragment);
         extras = getIntent().getExtras();
-//        fragmentAdapter = new FragmentAdapter(getSupportFragmentManager(), getLifecycle());
-//        vpFragment.setAdapter(fragmentAdapter);
     }
 
     void setUsername() {
@@ -80,12 +75,6 @@ public class HomePage extends AppCompatActivity {
     }
 //
 
-//    list item
-    RecyclerView rvCloth;
-    MyRecycleViewAdapter myRecycleViewAdapter;
-    Vector<Cloth> vCloth;
-//
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,23 +82,5 @@ public class HomePage extends AppCompatActivity {
 
         init();
         setUsername();
-// RecycleView
-        rvCloth = findViewById(R.id.rv_cloth);
-        myRecycleViewAdapter = new MyRecycleViewAdapter(this);
-        loadData();
-        myRecycleViewAdapter.setvCloth(vCloth);
-
-        rvCloth.setAdapter(myRecycleViewAdapter);
-        rvCloth.setLayoutManager(new LinearLayoutManager(this));
-//
     };
-
-    private void loadData() {
-        vCloth = new Vector<>();
-        vCloth.add(new Cloth("C001", "BlackPink Tee", 50, 100, "Lorem Ipsum", "tee_bp"));
-        vCloth.add(new Cloth("C002", "EXO Tee", 50, 100, "Lorem Ipsum", "tee_exo"));
-        vCloth.add(new Cloth("C003", "Treasure Sweater", 50, 100, "Lorem Ipsum", "sweater_treasure"));
-        vCloth.add(new Cloth("C004", "RedVelvet Tee", 50, 100, "Lorem Ipsum", "tee_rv"));
-        vCloth.add(new Cloth("C005", "SuperJunior Hoodie", 50, 100, "Lorem Ipsum", "hoodie_suju"));
-    }
 }

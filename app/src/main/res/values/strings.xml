@@ -1,4 +1,18 @@
 <resources>
-    <string name="app_name">DelLuna</string>
-
+    <string name="app_name">Del Luna</string>
+    <string name="company_name">PT Hotel Imajinasi Tbk.</string>
+    <string name="app_about">About the App</string>
+    <string name="app_version">Version 1.0.1</string>
+    <string name="app_description">Del Luna is a simple mobile app that lets user choose their favorite KPOP merchandise to buy.</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="welcome">Welcome, email</string>
+    <string name="item_name">Item Name</string>
+    <string name="item_sold">Item Sold</string>
+    <string name="item_price">Item Price</string>
+    <string name="merchandise">Merchandise</string>
+    <string name="about">About</string>
+    <string name="logout">Logout</string>
+    <string name="home">Home</string>
 </resources>

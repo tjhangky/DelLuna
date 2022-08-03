@@ -89,7 +89,7 @@ public class MerchandiseDetailPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_merchandise_detail);
+        setContentView(R.layout.activity_merchandise_detail_page);
 
         init();
         setItem();

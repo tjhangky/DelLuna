@@ -11,15 +11,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome, email"
+        android:text="@string/welcome"
         android:layout_marginTop="20dp"
         android:textSize="20dp"
         android:id="@+id/tv_welcome"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:id="@+id/rv_cloth"/>
 
 </LinearLayout>

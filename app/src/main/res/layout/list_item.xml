@@ -28,19 +28,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
-                android:text="Item Name"
+                android:text="@string/item_name"
                 android:id="@+id/tv_item_name"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Item Sold"
+                android:text="@string/item_sold"
                 android:id="@+id/tv_item_sold"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
                 android:textAlignment="textEnd"
-                android:text="Item Price"
+                android:text="@string/item_price"
                 android:id="@+id/tv_item_price"/>
         </LinearLayout>
     </LinearLayout>

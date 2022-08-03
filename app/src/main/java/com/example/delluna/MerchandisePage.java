@@ -97,7 +97,7 @@ public class MerchandisePage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_merchandise);
+        setContentView(R.layout.activity_merchandise_page);
 
         init();
         populateTab();
