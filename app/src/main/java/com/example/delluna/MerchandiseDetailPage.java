@@ -5,15 +5,21 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MerchandiseDetailPage extends AppCompatActivity {
 
     TextView tvItemId, tvItemName, tvItemPrice, tvItemSold, tvItemDescription;
+    EditText etItemQty;
+    Button btnBuy;
     ImageView ivItemImage;
     Bundle extras;
 
@@ -25,8 +31,9 @@ public class MerchandiseDetailPage extends AppCompatActivity {
         tvItemSold = findViewById(R.id.tv_item_detail_sold);
         tvItemDescription = findViewById(R.id.tv_item_detail_description);
         ivItemImage = findViewById(R.id.iv_item_detail_image);
+        etItemQty = findViewById(R.id.et_item_detail_qty);
         extras = getIntent().getExtras();
-
+        btnBuy = findViewById(R.id.btn_buy);
     }
 
     public void setItem() {
@@ -93,5 +100,26 @@ public class MerchandiseDetailPage extends AppCompatActivity {
 
         init();
         setItem();
+
+        btnBuy.setOnClickListener(e -> {
+            int qty;
+
+            //ini error, toast ga muncul, app crush
+            if(TextUtils.isEmpty(etItemQty.getText().toString())) {
+                Toast.makeText(this, "Quantity must be filled!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            qty = Integer.parseInt(etItemQty.getText().toString());
+            if(qty <= 0){
+                Toast.makeText(this, "Quantity must be filled!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            Intent intent = new Intent(this, MerchandisePage.class);
+            intent.putExtra("username", extras.getString("username"));
+            startActivity(intent);
+            finish();
+        });
     }
 }
