@@ -12,11 +12,14 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.delluna.adapter.MyRecycleViewAdapter;
 import com.google.android.material.tabs.TabLayout;
 import com.example.delluna.model.Cloth;
+import com.synnapps.carouselview.CarouselView;
+import com.synnapps.carouselview.ImageListener;
 
 import java.util.Vector;
 
@@ -25,17 +28,32 @@ public class HomePage extends AppCompatActivity {
     TextView tvWelcome;
     TabLayout tlTab;
     Bundle extras;
+    CarouselView carouselView;
+    int[] carouselImages = {R.drawable.album_aespa,
+            R.drawable.album_ateez,
+            R.drawable.album_ey,
+            R.drawable.album_nct};
 
     void init() {
         tvWelcome = findViewById(R.id.tv_welcome);
         tlTab = findViewById(R.id.tl_tab);
         extras = getIntent().getExtras();
+        carouselView = findViewById(R.id.carouselView);
+        carouselView.setPageCount(carouselImages.length);
+        carouselView.setImageListener(imageListener);
     }
 
     void setUsername() {
         String username = extras.getString("username");
         tvWelcome.setText("welcome, " + username);
     }
+
+    ImageListener imageListener = new ImageListener() {
+        @Override
+        public void setImageForPosition(int position, ImageView imageView) {
+            imageView.setImageResource(carouselImages[position]);
+        }
+    };
 
 //    Sidebar Menu
     @Override
