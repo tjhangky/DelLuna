@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnTest.setOnClickListener(e -> {
-            Intent intent = new Intent(MainActivity.this, MainActivity_new.class);
+            Intent intent = new Intent(MainActivity.this, MainActivity_drawer.class);
             startActivity(intent);
             finish();
         });
