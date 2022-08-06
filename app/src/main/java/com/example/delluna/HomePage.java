@@ -14,6 +14,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -140,19 +142,29 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         setDrawerLayout();
 
         btnPrev.setOnClickListener(e -> {
+            carouselView.pauseCarousel();
             if(carouselView.getCurrentItem() == 0){
                 carouselView.setCurrentItem(carouselView.getPageCount()-1);
             }else{
                 carouselView.setCurrentItem(carouselView.getCurrentItem()-1);
             }
+//            Animation animation = AnimationUtils.loadAnimation(HomePage.this, R.anim.to_right);
+//            carouselView.startAnimation(animation);
+//            overridePendingTransition(R.anim.to_left, R.anim.to_right);
+            carouselView.playCarousel();
         });
-
         btnNext.setOnClickListener(e -> {
+            carouselView.pauseCarousel();
             if(carouselView.getCurrentItem() == carouselView.getPageCount()-1){
                 carouselView.setCurrentItem(0);
             }else{
                 carouselView.setCurrentItem(carouselView.getCurrentItem()+1);
             }
+//            Animation animation = AnimationUtils.loadAnimation(HomePage.this, R.anim.to_right);
+//            carouselView.startAnimation(animation);
+//            overridePendingTransition(R.anim.to_left, R.anim.to_right);
+//            carouselView.setAnimation(animation);
+            carouselView.playCarousel();
         });
     };
 }
