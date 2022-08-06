@@ -7,7 +7,6 @@
     tools:context=".HomePage"
     android:orientation="vertical"
     android:layout_marginHorizontal="15dp">
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,16 +15,24 @@
         android:textSize="20dp"
         android:id="@+id/tv_welcome"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:text="Promotions"/>
+
     <com.synnapps.carouselview.CarouselView
         android:id="@+id/carouselView"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="250dp"
         app:fillColor="#FFFFFFFF"
         app:pageColor="#00000000"
         app:radius="6dp"
         app:slideInterval="3000"
         app:strokeColor="#FF777777"
         app:strokeWidth="1dp"
-        app:pageTransformInterval="500"/>
+        app:pageTransformInterval="500"
+        tools:ignore="MissingClass" />
 
 </LinearLayout>
