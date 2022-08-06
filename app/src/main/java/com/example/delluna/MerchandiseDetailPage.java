@@ -1,7 +1,9 @@
 package com.example.delluna;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,17 +16,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MerchandiseDetailPage extends AppCompatActivity {
+import com.google.android.material.navigation.NavigationView;
 
-    TextView tvItemId, tvItemName, tvItemPrice, tvItemSold, tvItemDescription;
+public class MerchandiseDetailPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    TextView tvItemName, tvItemPrice, tvItemSold, tvItemDescription;
     EditText etItemQty;
     Button btnBuy;
     ImageView ivItemImage;
     Bundle extras;
 
+    DrawerLayout drawerLayout;
+    ActionBarDrawerToggle actionBarDrawerToggle;
+    NavigationView navigationView;
+
 
     public void init() {
-//        tvItemId = findViewById(R.id.tv_item_id);
         tvItemName = findViewById(R.id.tv_item_detail_name);
         tvItemPrice = findViewById(R.id.tv_item_detail_price);
         tvItemSold = findViewById(R.id.tv_item_detail_sold);
@@ -36,15 +43,12 @@ public class MerchandiseDetailPage extends AppCompatActivity {
     }
 
     public void setItem() {
-//        String itemId = extras.getString("itemId");
         String itemName = extras.getString("itemName");
         String itemPrice = extras.getString("itemPrice");
         String itemSold = extras.getString("itemSold");
         String itemDescription = extras.getString("itemDescription");
         String itemImage = extras.getString("itemImage");
 
-
-//        tvItemId.setText(itemId);
         tvItemName.setText(itemName);
         tvItemPrice.setText(itemPrice);
         tvItemSold.setText(itemSold);
@@ -54,16 +58,30 @@ public class MerchandiseDetailPage extends AppCompatActivity {
         ivItemImage.setImageResource(resourceId);
     }
 
-//    Sidebar Menu
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_merchandise, menu);
-        return true;
+    //    Side Navigation
+    public void setDrawerLayout() {
+        drawerLayout = findViewById(R.id.drawer_layout);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
+        navigationView = findViewById(R.id.navigation_view);
+
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case(R.id.i_home): {
                 Intent intent = new Intent(this, HomePage.class);
@@ -90,7 +108,7 @@ public class MerchandiseDetailPage extends AppCompatActivity {
         }
         return true;
     }
-//
+//    Side Navigation End
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +116,7 @@ public class MerchandiseDetailPage extends AppCompatActivity {
         setContentView(R.layout.activity_merchandise_detail_page);
 
         init();
+        setDrawerLayout();
         setItem();
 
         btnBuy.setOnClickListener(e -> {

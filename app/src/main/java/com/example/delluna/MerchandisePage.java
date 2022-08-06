@@ -1,7 +1,9 @@
 package com.example.delluna;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
@@ -10,14 +12,19 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
-public class MerchandisePage extends AppCompatActivity {
+public class MerchandisePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     TabLayout tlTab;
     ViewPager2 vpFragment;
     FragmentAdapter fragmentAdapter;
     Bundle extras;
+
+    DrawerLayout drawerLayout;
+    ActionBarDrawerToggle actionBarDrawerToggle;
+    NavigationView navigationView;
 
     void init() {
         tlTab = findViewById(R.id.tl_tab);
@@ -52,18 +59,32 @@ public class MerchandisePage extends AppCompatActivity {
             }
         });
     }
-//
 
-    //    Sidebar Menu
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_merchandise, menu);
-        return true;
+    //    Side Navigation
+    public void setDrawerLayout() {
+        drawerLayout = findViewById(R.id.drawer_layout);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
+        navigationView = findViewById(R.id.navigation_view);
+
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case(R.id.i_home): {
                 Intent intent = new Intent(this, HomePage.class);
@@ -87,12 +108,10 @@ public class MerchandisePage extends AppCompatActivity {
                 finish();
                 break;
             }
-
-
         }
         return true;
     }
-//
+//    Side Navigation End
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +119,7 @@ public class MerchandisePage extends AppCompatActivity {
         setContentView(R.layout.activity_merchandise_page);
 
         init();
+        setDrawerLayout();
         populateTab();
         setupTab();
     }
