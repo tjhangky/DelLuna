@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -104,15 +103,14 @@ public class MerchandiseDetailPage extends AppCompatActivity {
         btnBuy.setOnClickListener(e -> {
             int qty;
 
-            //ini error, toast ga muncul, app crush
-            if(TextUtils.isEmpty(etItemQty.getText().toString())) {
+            if(etItemQty.getText().toString().isEmpty()) {
                 Toast.makeText(this, "Quantity must be filled!", Toast.LENGTH_SHORT).show();
                 return;
             }
 
             qty = Integer.parseInt(etItemQty.getText().toString());
             if(qty <= 0){
-                Toast.makeText(this, "Quantity must be filled!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Quantity must be greater than 0!", Toast.LENGTH_SHORT).show();
                 return;
             }
 
