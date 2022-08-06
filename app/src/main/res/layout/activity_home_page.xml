@@ -37,13 +37,28 @@
             app:fillColor="#FFFFFFFF"
             app:pageColor="#00000000"
             app:radius="6dp"
-            app:slideInterval="3000"
+            app:slideInterval="5000"
             app:strokeColor="#FF777777"
             app:strokeWidth="1dp"
-            app:pageTransformInterval="500"
             tools:ignore="MissingClass" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Prev"
+            android:id="@+id/btn_prev"/>
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Next"
+            android:id="@+id/btn_next"/>
     </LinearLayout>
     <!-- Content -->
+
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"

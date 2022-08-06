@@ -13,9 +13,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.delluna.adapter.MyRecycleViewAdapter;
 import com.google.android.material.navigation.NavigationView;
@@ -23,6 +25,7 @@ import com.google.android.material.tabs.TabLayout;
 import com.example.delluna.model.Cloth;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
+import com.synnapps.carouselview.ViewListener;
 
 import java.util.Vector;
 
@@ -32,6 +35,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     TabLayout tlTab;
     Bundle extras;
     CarouselView carouselView;
+    Button btnNext, btnPrev;
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
@@ -49,6 +53,8 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         carouselView = findViewById(R.id.carouselView);
         carouselView.setPageCount(carouselImages.length);
         carouselView.setImageListener(imageListener);
+        btnPrev = findViewById(R.id.btn_prev);
+        btnNext = findViewById(R.id.btn_next);
     }
 
     void setUsername() {
@@ -117,6 +123,13 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     }
 //    Side Navigation End
 
+    ImageListener imageListenerNext = new ImageListener() {
+        @Override
+        public void setImageForPosition(int position, ImageView imageView) {
+            imageView.setImageResource(carouselImages[position+1]);
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -125,5 +138,21 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         init();
         setUsername();
         setDrawerLayout();
+
+        btnPrev.setOnClickListener(e -> {
+            if(carouselView.getCurrentItem() == 0){
+                carouselView.setCurrentItem(carouselView.getPageCount()-1);
+            }else{
+                carouselView.setCurrentItem(carouselView.getCurrentItem()-1);
+            }
+        });
+
+        btnNext.setOnClickListener(e -> {
+            if(carouselView.getCurrentItem() == carouselView.getPageCount()-1){
+                carouselView.setCurrentItem(0);
+            }else{
+                carouselView.setCurrentItem(carouselView.getCurrentItem()+1);
+            }
+        });
     };
 }

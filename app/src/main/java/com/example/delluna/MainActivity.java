@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
         etEmail = findViewById(R.id.et_email);
         etPassword = findViewById(R.id.et_password);
         btnLogin = findViewById(R.id.btn_login);
-        btnTest = findViewById(R.id.btn_test);
 
         btnLogin.setOnClickListener(e -> {
             String email, password;
@@ -74,10 +73,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        btnTest.setOnClickListener(e -> {
-//            Intent intent = new Intent(MainActivity.this, MainActivity_drawer.class);
-//            startActivity(intent);
-//            finish();
-//        });
     }
 }
