@@ -1,7 +1,9 @@
 package com.example.delluna;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
@@ -16,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.delluna.adapter.MyRecycleViewAdapter;
+import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.example.delluna.model.Cloth;
 import com.synnapps.carouselview.CarouselView;
@@ -23,12 +26,17 @@ import com.synnapps.carouselview.ImageListener;
 
 import java.util.Vector;
 
-public class HomePage extends AppCompatActivity {
+public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     TextView tvWelcome;
     TabLayout tlTab;
     Bundle extras;
     CarouselView carouselView;
+
+    DrawerLayout drawerLayout;
+    ActionBarDrawerToggle actionBarDrawerToggle;
+    NavigationView navigationView;
+
     int[] carouselImages = {R.drawable.album_aespa,
             R.drawable.album_ateez,
             R.drawable.album_ey,
@@ -47,24 +55,40 @@ public class HomePage extends AppCompatActivity {
         String username = extras.getString("username");
         tvWelcome.setText("welcome, " + username);
     }
-
+//    Carousel
     ImageListener imageListener = new ImageListener() {
         @Override
         public void setImageForPosition(int position, ImageView imageView) {
             imageView.setImageResource(carouselImages[position]);
         }
     };
+//     Carousel End
 
-//    Sidebar Menu
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu, menu);
-        return true;
+//    Side Navigation
+    public void setDrawerLayout() {
+         drawerLayout = findViewById(R.id.drawer_layout);
+         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
+         navigationView = findViewById(R.id.navigation_view);
+
+         drawerLayout.addDrawerListener(actionBarDrawerToggle);
+         actionBarDrawerToggle.syncState();
+
+         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+         navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case(R.id.i_merchandise): {
                 Intent intent = new Intent(this, MerchandisePage.class);
@@ -91,7 +115,7 @@ public class HomePage extends AppCompatActivity {
         }
         return true;
     }
-//
+//    Side Navigation End
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,5 +124,6 @@ public class HomePage extends AppCompatActivity {
 
         init();
         setUsername();
+        setDrawerLayout();
     };
 }

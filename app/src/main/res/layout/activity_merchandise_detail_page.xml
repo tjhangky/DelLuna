@@ -1,75 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MerchandiseDetailPage"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:layout_marginHorizontal="15dp">
+    android:id="@+id/drawer_layout">
 
-
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:src="@drawable/hoodie_suju"
-        android:id="@+id/iv_item_detail_image"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:textSize="25dp"
-        android:text="Item Name"
-        android:id="@+id/tv_item_detail_name"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Item Sold"
-        android:id="@+id/tv_item_detail_sold"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="textEnd"
-        android:textSize="25dp"
-        android:text="Item Price"
-        android:id="@+id/tv_item_detail_price"/>
-
+    <!-- Content -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        tools:context=".MerchandiseDetailPage"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginHorizontal="15dp">
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/hoodie_suju"
+            android:id="@+id/iv_item_detail_image"/>
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:textSize="25dp"
+            android:text="Item Name"
+            android:id="@+id/tv_item_detail_name"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Item Sold"
+            android:id="@+id/tv_item_detail_sold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="textEnd"
+            android:textSize="25dp"
+            android:text="Item Price"
+            android:id="@+id/tv_item_detail_price"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Input Quantity: "/>
+            <EditText
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:inputType="number"
+                android:id="@+id/et_item_detail_qty"
+                android:hint="0"/>
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Item Description"
+            android:id="@+id/tv_item_detail_description"/>
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Input Quantity: "/>
-        <EditText
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:inputType="number"
-            android:id="@+id/et_item_detail_qty"
-            android:hint="0"/>
+            android:layout_marginTop="20dp"
+            android:text="Purchase"
+            android:id="@+id/btn_buy"/>
     </LinearLayout>
+    <!-- Content -->
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Item Description"
-        android:id="@+id/tv_item_detail_description"/>
-
-    <Button
+    <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Purchase"
-        android:id="@+id/btn_buy"/>
-
-
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/menu_about"
+        android:id="@+id/navigation_view" />
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -74,10 +74,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnTest.setOnClickListener(e -> {
-            Intent intent = new Intent(MainActivity.this, MainActivity_drawer.class);
-            startActivity(intent);
-            finish();
-        });
+//        btnTest.setOnClickListener(e -> {
+//            Intent intent = new Intent(MainActivity.this, MainActivity_drawer.class);
+//            startActivity(intent);
+//            finish();
+//        });
     }
 }

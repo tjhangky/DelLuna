@@ -9,8 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DelLuna">
-        <activity android:name=".MainActivity_drawer"></activity>
-        <activity android:name=".MainActivity_new" />
         <activity android:name=".MerchandiseDetailPage" />
         <activity android:name=".MerchandisePage" />
         <activity android:name=".AboutPage" />
