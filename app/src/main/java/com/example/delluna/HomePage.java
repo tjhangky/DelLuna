@@ -43,10 +43,12 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     ActionBarDrawerToggle actionBarDrawerToggle;
     NavigationView navigationView;
 
-    int[] carouselImages = {R.drawable.album_aespa,
-            R.drawable.album_ateez,
-            R.drawable.album_ey,
-            R.drawable.album_nct};
+    int[] carouselImages = {
+            R.drawable.banner_1,
+            R.drawable.banner_2,
+            R.drawable.banner_3,
+            R.drawable.banner_4,
+            };
 
     void init() {
         tvWelcome = findViewById(R.id.tv_welcome);
