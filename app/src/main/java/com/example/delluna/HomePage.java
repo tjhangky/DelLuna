@@ -10,6 +10,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -143,7 +144,21 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         setUsername();
         setDrawerLayout();
 
+        btnPrev.setBackgroundColor(getResources().getColor(R.color.purple_200));
+        btnNext.setBackgroundColor(getResources().getColor(R.color.purple_200));
+
         btnPrev.setOnClickListener(e -> {
+            // change color button temporaly
+            btnPrev.setBackgroundColor(getResources().getColor(R.color.purple_700));
+            // Delay of 2 seconds (200 ms) before changing back
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    btnPrev.setBackgroundColor(getResources().getColor(R.color.purple_200)); // change color back
+                }
+            }, 200);
+
             carouselView.pauseCarousel();
             if(carouselView.getCurrentItem() == 0){
                 carouselView.setCurrentItem(carouselView.getPageCount()-1);
@@ -156,6 +171,17 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             carouselView.playCarousel();
         });
         btnNext.setOnClickListener(e -> {
+            // change color button temporaly
+            btnNext.setBackgroundColor(getResources().getColor(R.color.purple_700));
+            // Delay of 2 seconds (200 ms) before changing back
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    btnNext.setBackgroundColor(getResources().getColor(R.color.purple_200)); // change color back
+                }
+            }, 200);
+
             carouselView.pauseCarousel();
             if(carouselView.getCurrentItem() == carouselView.getPageCount()-1){
                 carouselView.setCurrentItem(0);
