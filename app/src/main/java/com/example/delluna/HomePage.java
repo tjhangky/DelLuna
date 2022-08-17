@@ -150,9 +150,9 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             }else{
                 carouselView.setCurrentItem(carouselView.getCurrentItem()-1);
             }
-//            Animation animation = AnimationUtils.loadAnimation(HomePage.this, R.anim.to_right);
-//            carouselView.startAnimation(animation);
-//            overridePendingTransition(R.anim.to_left, R.anim.to_right);
+            Animation animation = AnimationUtils.loadAnimation(HomePage.this, R.anim.to_right);
+            carouselView.startAnimation(animation);
+//            overridePendingTransition(R.anim.slide_left, R.anim.slide_right);
             carouselView.playCarousel();
         });
         btnNext.setOnClickListener(e -> {
@@ -162,10 +162,9 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             }else{
                 carouselView.setCurrentItem(carouselView.getCurrentItem()+1);
             }
-//            Animation animation = AnimationUtils.loadAnimation(HomePage.this, R.anim.to_right);
-//            carouselView.startAnimation(animation);
-//            overridePendingTransition(R.anim.to_left, R.anim.to_right);
-//            carouselView.setAnimation(animation);
+            Animation animation = AnimationUtils.loadAnimation(HomePage.this, R.anim.to_right);
+            carouselView.startAnimation(animation);
+//            overridePendingTransition(R.anim.slide_left, R.anim.slide_right);
             carouselView.playCarousel();
         });
     };

@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -57,7 +59,21 @@ public class MainActivity extends AppCompatActivity {
         etPassword = findViewById(R.id.et_password);
         btnLogin = findViewById(R.id.btn_login);
 
+        // set button color
+        btnLogin.setBackgroundColor(getResources().getColor(R.color.purple_200));
+
         btnLogin.setOnClickListener(e -> {
+            // change color button temporaly
+            btnLogin.setBackgroundColor(getResources().getColor(R.color.purple_700));
+            // Delay of 2 seconds (200 ms) before changing back
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    btnLogin.setBackgroundColor(getResources().getColor(R.color.purple_200)); // change color back
+                }
+            }, 200);
+
             String email, password;
             email = etEmail.getText().toString();
             password = etPassword.getText().toString();
@@ -72,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
         });
+
+       //onhover?
 
     }
 }

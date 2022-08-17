@@ -7,6 +7,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -118,8 +119,21 @@ public class MerchandiseDetailPage extends AppCompatActivity implements Navigati
         init();
         setDrawerLayout();
         setItem();
+        // set button color
+        btnBuy.setBackgroundColor(getResources().getColor(R.color.purple_200));
 
         btnBuy.setOnClickListener(e -> {
+            // change color button temporaly
+            btnBuy.setBackgroundColor(getResources().getColor(R.color.purple_700));
+            // Delay of 2 seconds (200 ms) before changing back
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    btnBuy.setBackgroundColor(getResources().getColor(R.color.purple_200)); // change color back
+                }
+            }, 200);
+
             int qty;
 
             if(etItemQty.getText().toString().isEmpty()) {
