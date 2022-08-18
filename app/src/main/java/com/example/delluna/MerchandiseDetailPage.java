@@ -5,6 +5,8 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -137,13 +139,45 @@ public class MerchandiseDetailPage extends AppCompatActivity implements Navigati
             int qty;
 
             if(etItemQty.getText().toString().isEmpty()) {
-                Toast.makeText(this, "Quantity must be filled!", Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(MerchandiseDetailPage.this);
+                builder1.setMessage("Quantity must be filled!");
+                builder1.setCancelable(true);
+
+                builder1.setPositiveButton(
+                        "Try Again",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+
+                AlertDialog alert11 = builder1.create();
+                alert11.show();
+
+
+//                Toast.makeText(this, "Quantity must be filled!", Toast.LENGTH_SHORT).show();
                 return;
             }
 
             qty = Integer.parseInt(etItemQty.getText().toString());
             if(qty <= 0){
-                Toast.makeText(this, "Quantity must be greater than 0!", Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(MerchandiseDetailPage.this);
+                builder1.setMessage("Quantity must be greater than 0!");
+                builder1.setCancelable(true);
+
+                builder1.setPositiveButton(
+                        "Try Again",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+
+                AlertDialog alert11 = builder1.create();
+                alert11.show();
+
+
+//                Toast.makeText(this, "Quantity must be greater than 0!", Toast.LENGTH_SHORT).show();
                 return;
             }
 
