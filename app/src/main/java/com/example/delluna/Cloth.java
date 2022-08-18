@@ -92,10 +92,10 @@ public class Cloth extends Fragment {
 
     private void loadData() {
         vCloth = new Vector<>();
-        vCloth.add(new com.example.delluna.model.Cloth("C001", "BlackPink Tee", 50, 100, "Lorem Ipsum", "tee_bp"));
-        vCloth.add(new com.example.delluna.model.Cloth("C002", "EXO Tee", 50, 100, "Lorem Ipsum", "tee_exo"));
-        vCloth.add(new com.example.delluna.model.Cloth("C003", "Treasure Sweater", 50, 100, "Lorem Ipsum", "sweater_treasure"));
-        vCloth.add(new com.example.delluna.model.Cloth("C004", "RedVelvet Tee", 50, 100, "Lorem Ipsum", "tee_rv"));
-        vCloth.add(new com.example.delluna.model.Cloth("C005", "SuperJunior Hoodie", 50, 100, "Lorem Ipsum", "hoodie_suju"));
+        vCloth.add(new com.example.delluna.model.Cloth("C001", "BlackPink Tee", 50, 100, "Limited Edition BlackPink Tee for Blinks!", "tee_bp"));
+        vCloth.add(new com.example.delluna.model.Cloth("C002", "EXO Tee", 50, 100, "Limited Edition EXO Tee", "tee_exo"));
+        vCloth.add(new com.example.delluna.model.Cloth("C003", "Treasure Sweater", 50, 100, "Limited Edition Treasure Sweater", "sweater_treasure"));
+        vCloth.add(new com.example.delluna.model.Cloth("C004", "RedVelvet Tee", 50, 100, "Limited Edition Red Velvet Tee", "tee_rv"));
+        vCloth.add(new com.example.delluna.model.Cloth("C005", "SuperJunior Hoodie", 50, 100, "Limited Edition Super Junior Hoodie", "hoodie_suju"));
     }
 }

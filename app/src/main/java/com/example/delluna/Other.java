@@ -91,11 +91,11 @@ public class Other extends Fragment {
 
     private void loadData() {
         vOther = new Vector<>();
-        vOther.add(new com.example.delluna.model.Other("M001", "NCT Lightstick", 50, 100, "Lorem Ipsum", "lightstick_nct"));
-        vOther.add(new com.example.delluna.model.Other("M002", "BlackPink Lightstick", 50, 100, "Lorem Ipsum", "lightstick_bp"));
-        vOther.add(new com.example.delluna.model.Other("M003", "TWICE Photocard", 50, 100, "Lorem Ipsum", "photocard_twice"));
-        vOther.add(new com.example.delluna.model.Other("M004", "ST Poster", 50, 100, "Lorem Ipsum", "poster_st"));
-        vOther.add(new com.example.delluna.model.Other("M005", "BTS Tumbler", 50, 100, "Lorem Ipsum", "tumbler_bts"));
+        vOther.add(new com.example.delluna.model.Other("M001", "NCT Lightstick", 50, 100, "Limited Edition NCT Lightstick", "lightstick_nct"));
+        vOther.add(new com.example.delluna.model.Other("M002", "BlackPink Lightstick", 50, 100, "Limited Edition BlackPink Lightstick", "lightstick_bp"));
+        vOther.add(new com.example.delluna.model.Other("M003", "TWICE Photocard", 50, 100, "Limited Edition Twice Photocard", "photocard_twice"));
+        vOther.add(new com.example.delluna.model.Other("M004", "ST Poster", 50, 100, "Limited Edition ST Poster", "poster_st"));
+        vOther.add(new com.example.delluna.model.Other("M005", "BTS Tumbler", 50, 100, "Limited Edition BTS Tumbler", "tumbler_bts"));
     }
 
 }

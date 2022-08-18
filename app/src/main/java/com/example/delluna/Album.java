@@ -91,12 +91,12 @@ public class Album extends Fragment {
 
     private void loadData() {
         vAlbum = new Vector<>();
-        vAlbum.add(new com.example.delluna.model.Album("A001", "Aespa", 50, 100, "Lorem Ipsum", "album_aespa"));
-        vAlbum.add(new com.example.delluna.model.Album("A002", "Ateez", 50, 100, "Lorem Ipsum", "album_ateez"));
-        vAlbum.add(new com.example.delluna.model.Album("A003", "NCT", 50, 100, "Lorem Ipsum", "album_nct"));
-        vAlbum.add(new com.example.delluna.model.Album("A004", "EY", 50, 100, "Lorem Ipsum", "album_ey"));
-        vAlbum.add(new com.example.delluna.model.Album("A005", "Red Velvet", 50, 100, "Lorem Ipsum", "album_rv"));
-        vAlbum.add(new com.example.delluna.model.Album("A006", "SK", 50, 100, "Lorem Ipsum", "album_sk"));
-        vAlbum.add(new com.example.delluna.model.Album("A007", "TXT", 50, 100, "Lorem Ipsum", "album_txt"));
+        vAlbum.add(new com.example.delluna.model.Album("A001", "Aespa", 50, 100, "Limited Edition Aespa Album", "album_aespa"));
+        vAlbum.add(new com.example.delluna.model.Album("A002", "Ateez", 50, 100, "Limited Edition Ateez Album", "album_ateez"));
+        vAlbum.add(new com.example.delluna.model.Album("A003", "NCT", 50, 100, "Limited Edition NCT Album", "album_nct"));
+        vAlbum.add(new com.example.delluna.model.Album("A004", "EY", 50, 100, "Limited Edition EY Album", "album_ey"));
+        vAlbum.add(new com.example.delluna.model.Album("A005", "Red Velvet", 50, 100, "Limited Edition Red Velvet Album", "album_rv"));
+        vAlbum.add(new com.example.delluna.model.Album("A006", "SK", 50, 100, "Limited Edition SK Album", "album_sk"));
+        vAlbum.add(new com.example.delluna.model.Album("A007", "TXT", 50, 100, "Limited Edition TXT Album", "album_txt"));
     }
 }
